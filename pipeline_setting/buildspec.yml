@@ -12,5 +12,5 @@ phases:
 artifacts:
   files:
     - $PACKAGED_TEMPLATE_FILE_PATH
-    - pipeline_settings/*
+    - pipeline_setting/*
   discard-paths: yes

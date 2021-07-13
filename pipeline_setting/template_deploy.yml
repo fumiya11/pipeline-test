@@ -1,7 +1,25 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: code-deploy-cfntest
 Resources:
-  S3Contents:
-    Type: AWS::S3::Bucket
+  PythonLambdaFunction:
+    Type: AWS::Lambda::Function
     Properties:
-      BucketName: code-deploy-cfntest
+      Description: lambda function test
+      FunctionName: LambdaPython
+      Handler: lambda_handler
+      MemorySize: 256
+      Role: !GetAtt LambdaRole.Arn
+      Runtime: python3.6
+      Timeout: 10
+
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
