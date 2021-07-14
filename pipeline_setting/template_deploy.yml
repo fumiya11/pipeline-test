@@ -7,7 +7,7 @@ Resources:
       Description: lambda function test
       FunctionName: LambdaPython
       Handler: lambda_handler
-      Code: ../lambda_handler
+      Code: ../
       MemorySize: 256
       Role: !GetAtt LambdaRole.Arn
       Runtime: python3.6
